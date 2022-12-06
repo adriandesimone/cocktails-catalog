@@ -1,9 +1,9 @@
-import "./Header.scss";
+import "./Home.scss";
 import siteIcon from "../cocktail_icon.png";
 import { useState } from "react";
 import CocktailSearchCard from "./CocktailSearchCard";
 
-const Header = () => {
+const Home = () => {
   const endpoint = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
   const [texto, setTexto] = useState("");
   const [showLoading, setShowLoading] = useState(false);
@@ -83,4 +83,4 @@ const Header = () => {
     </>
   );
 };
-export default Header;
+export default Home;

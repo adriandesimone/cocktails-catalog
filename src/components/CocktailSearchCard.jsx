@@ -15,7 +15,7 @@ const CocktailSearchCard = ({
       >
         <img className="card-img-top" src={imgUrl} alt={imgAlt} />
         <div className="card-body">
-          <h3 className="card-title">{cocktailName}</h3>
+          <h4 className="card-title">{cocktailName}</h4>
           <p className="card-text">{cocktailDescription}</p>
           <Link to={`/drink/${cocktailUrl}`} className="btn btn-danger">
             See cocktail <i className="fa-solid fa-arrow-right"></i>
