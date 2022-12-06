@@ -15,7 +15,7 @@ const Home = () => {
     const searchResult = await fetch(url);
     //console.log(searchResult);
     const data = await searchResult.json();
-    console.log(data);
+    //console.log(data);
     if (data !== null && data.drinks !== null && data.drinks.length > 0)
       setCocktailList(data.drinks);
     else setCocktailList([]);
