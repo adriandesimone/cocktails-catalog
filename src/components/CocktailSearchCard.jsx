@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CocktailSearchCard = ({
   imgUrl,
   imgAlt,
@@ -7,14 +9,17 @@ const CocktailSearchCard = ({
 }) => {
   return (
     <div>
-      <div className="card" style={{ width: "18rem" }}>
+      <div
+        className="card bg-dark text-white text-end m-3"
+        style={{ width: "18rem" }}
+      >
         <img className="card-img-top" src={imgUrl} alt={imgAlt} />
         <div className="card-body">
-          <h5 className="card-title">{cocktailName}</h5>
+          <h3 className="card-title">{cocktailName}</h3>
           <p className="card-text">{cocktailDescription}</p>
-          <a href={cocktailUrl} className="btn btn-primary">
-            See cocktail
-          </a>
+          <Link to={`/drink/${cocktailUrl}`} className="btn btn-danger">
+            See cocktail <i className="fa-solid fa-arrow-right"></i>
+          </Link>
         </div>
       </div>
     </div>
