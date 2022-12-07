@@ -1,5 +1,6 @@
 import "./Home.scss";
-import siteIcon from "../cocktail_icon.png";
+import SiteTitle from "./SiteTitle";
+import Loading from "./Loading";
 import { useState } from "react";
 import CocktailSearchCard from "./CocktailSearchCard";
 
@@ -24,19 +25,11 @@ const Home = () => {
 
   return (
     <>
-      {showLoading && (
-        <div id="loading">
-          <div id="loading-content"></div>
-        </div>
-      )}
+      {showLoading && <Loading />}
       <div className="header">
         <div className="row">
           <div className="col">
-            <div className="icon">
-              <h1 className="siteTitle">
-                <img src={siteIcon} alt="Page icon" /> Cocktails Catalog
-              </h1>
-            </div>
+            <SiteTitle />
           </div>
           <div className="col">
             <div className="searchForm">
