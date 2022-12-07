@@ -17,8 +17,8 @@ const CocktailSearchCard = ({
         <div className="card-body">
           <h4 className="card-title">{cocktailName}</h4>
           <p className="card-text">{cocktailDescription}</p>
-          <Link to={`/drink/${cocktailUrl}`} className="btn btn-danger">
-            See cocktail <i className="fa-solid fa-arrow-right"></i>
+          <Link to={`/drink/${cocktailUrl}`} className="btn btn-primary">
+            View cocktail <i className="fa-solid fa-arrow-right"></i>
           </Link>
         </div>
       </div>

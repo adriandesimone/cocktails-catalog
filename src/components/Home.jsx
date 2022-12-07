@@ -1,8 +1,9 @@
 import "./Home.scss";
 import SiteTitle from "./SiteTitle";
 import Loading from "./Loading";
-import { useState } from "react";
 import CocktailSearchCard from "./CocktailSearchCard";
+import CocktailRandom from "./CocktailRandom";
+import { useState } from "react";
 
 const Home = () => {
   const endpoint = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
@@ -57,21 +58,25 @@ const Home = () => {
       </div>
       <div className="searchResult">
         <div className="row m-4">
-          {cocktailList.map((item, index) => {
-            return (
-              <div className="col">
-                <CocktailSearchCard
-                  imgUrl={item.strDrinkThumb}
-                  imgAlt={item.strDrink}
-                  cocktailName={item.strDrink}
-                  cocktailDescription={`${item.strCategory} - ${item.strAlcoholic} - ${item.strGlass}`}
-                  cocktailUrl={item.idDrink}
-                  key={index.toString()}
-                />
-              </div>
-            );
-          })}
+          {cocktailList.length > 0 &&
+            cocktailList.map((item, index) => {
+              return (
+                <div className="col">
+                  <CocktailSearchCard
+                    imgUrl={item.strDrinkThumb}
+                    imgAlt={item.strDrink}
+                    cocktailName={item.strDrink}
+                    cocktailDescription={`${item.strCategory} - ${item.strAlcoholic} - ${item.strGlass}`}
+                    cocktailUrl={item.idDrink}
+                    key={index.toString()}
+                  />
+                </div>
+              );
+            })}
         </div>
+      </div>
+      <div className="randomDrinks">
+        <CocktailRandom />
       </div>
     </>
   );

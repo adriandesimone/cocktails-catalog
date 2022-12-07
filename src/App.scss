@@ -1,3 +1,9 @@
+@import "bootstrap-scss/functions";
+@import "bootstrap-scss/variables";
+@import "bootstrap-scss/maps";
+@import "bootstrap-scss/mixins";
+@import "bootstrap-scss/utilities";
+
 //Vars
 :root {
   --rad: 0.7rem;
@@ -29,4 +35,8 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+.background-purple-900 {
+  background-color: $purple-900;
 }
