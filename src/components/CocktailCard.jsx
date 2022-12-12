@@ -2,12 +2,16 @@ import SiteTitle from "./SiteTitle";
 import Loading from "./Loading";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import iconUnitedKingdom from "../assets/images/flags/flag_united_kingdom.png";
+import iconGermany from "../assets/images/flags/flag_germany.png";
+import iconItaly from "../assets/images/flags/flag_italy.png";
 
 const CocktailCard = () => {
   const endpoint = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
   const { id } = useParams();
   const [cocktail, setCocktail] = useState([]);
   const [showLoading, setShowLoading] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("eng");
 
   useEffect(() => {
     getCocktailById(`${endpoint}${id}`);
@@ -19,7 +23,7 @@ const CocktailCard = () => {
     const cocktailResult = await fetch(url);
     //console.log(cocktailResult);
     const data = await cocktailResult.json();
-    //console.log(data.drinks[0]);
+    console.log(data.drinks[0]);
     if (data !== null && data.drinks !== null && data.drinks.length > 0)
       setCocktail(data.drinks[0]);
     setShowLoading(false);
@@ -45,7 +49,7 @@ const CocktailCard = () => {
                 src={cocktail.strDrinkThumb}
                 alt={cocktail.strDrink}
               />
-              <div class="d-grid gap-2">
+              <div className="d-grid gap-2">
                 <Link to={"/"} className="btn btn-primary text-start p-4">
                   <i className="fa-solid fa-arrow-left"></i> Go back
                 </Link>
@@ -116,7 +120,13 @@ const CocktailCard = () => {
                   )}
                 </ul>
                 <h5 className="mt-3 ms-4">Instructions</h5>
-                <p className="ms-5">{cocktail.strInstructions}</p>
+                <p className="ms-5">
+                  {selectedLanguage === "eng"
+                    ? cocktail.strInstructions
+                    : selectedLanguage === "de"
+                    ? cocktail.strInstructionsDE
+                    : cocktail.strInstructionsIT}
+                </p>
                 {cocktail.strVideo !== null && (
                   <a
                     className="btn btn-danger ms-4"
@@ -127,6 +137,26 @@ const CocktailCard = () => {
                     <i className="fa-brands fa-youtube"></i> How to video
                   </a>
                 )}
+              </div>
+              <div className="card-footer text-end">
+                <img
+                  src={iconUnitedKingdom}
+                  alt="English"
+                  className="mx-2 languajeIcon"
+                  onClick={() => setSelectedLanguage("eng")}
+                />
+                <img
+                  src={iconGermany}
+                  alt="German"
+                  className="mx-2 languajeIcon"
+                  onClick={() => setSelectedLanguage("de")}
+                />
+                <img
+                  src={iconItaly}
+                  alt="Italian"
+                  className="mx-2 languajeIcon"
+                  onClick={() => setSelectedLanguage("it")}
+                />
               </div>
             </div>
           </div>

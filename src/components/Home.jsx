@@ -57,6 +57,9 @@ const Home = () => {
         </div>
       </div>
       <div className="searchResult">
+        {cocktailList.length > 0 && (
+          <h4 className="text-white mt-5">Search Results</h4>
+        )}
         <div className="row m-4">
           {cocktailList.length > 0 &&
             cocktailList.map((item, index) => {
