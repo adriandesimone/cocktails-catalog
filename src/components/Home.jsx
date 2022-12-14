@@ -64,16 +64,14 @@ const Home = () => {
           {cocktailList.length > 0 &&
             cocktailList.map((item, index) => {
               return (
-                <div className="col">
-                  <CocktailSearchCard
-                    imgUrl={item.strDrinkThumb}
-                    imgAlt={item.strDrink}
-                    cocktailName={item.strDrink}
-                    cocktailDescription={`${item.strCategory} - ${item.strAlcoholic} - ${item.strGlass}`}
-                    cocktailUrl={item.idDrink}
-                    key={index.toString()}
-                  />
-                </div>
+                <CocktailSearchCard
+                  key={item.idDrink}
+                  imgUrl={item.strDrinkThumb}
+                  imgAlt={item.strDrink}
+                  cocktailName={item.strDrink}
+                  cocktailDescription={`${item.strCategory} - ${item.strAlcoholic} - ${item.strGlass}`}
+                  cocktailUrl={item.idDrink}
+                />
               );
             })}
         </div>

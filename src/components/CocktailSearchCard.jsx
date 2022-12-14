@@ -8,7 +8,7 @@ const CocktailSearchCard = ({
   cocktailUrl,
 }) => {
   return (
-    <div>
+    <div className="col">
       <div
         className="card bg-dark text-white text-end m-3"
         style={{ width: "18rem" }}

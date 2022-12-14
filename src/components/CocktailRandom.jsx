@@ -20,7 +20,7 @@ const CocktailRandom = () => {
         if (data !== null && data.drinks !== null && data.drinks.length > 0)
           randomDrinks.push(data.drinks[0]);
       }
-      console.log(randomDrinks);
+      //console.log(randomDrinks);
       setCocktailList(randomDrinks);
       setShowLoading(false);
     }
@@ -37,15 +37,14 @@ const CocktailRandom = () => {
             cocktailList.map((item, index) => {
               if (index > 2) return <></>;
               return (
-                <div className="col" key={index}>
-                  <CocktailSearchCard
-                    imgUrl={item.strDrinkThumb}
-                    imgAlt={item.strDrink}
-                    cocktailName={item.strDrink}
-                    cocktailDescription={`${item.strCategory} - ${item.strAlcoholic} - ${item.strGlass}`}
-                    cocktailUrl={item.idDrink}
-                  />
-                </div>
+                <CocktailSearchCard
+                  key={index}
+                  imgUrl={item.strDrinkThumb}
+                  imgAlt={item.strDrink}
+                  cocktailName={item.strDrink}
+                  cocktailDescription={`${item.strCategory} - ${item.strAlcoholic} - ${item.strGlass}`}
+                  cocktailUrl={item.idDrink}
+                />
               );
             })}
         </div>
