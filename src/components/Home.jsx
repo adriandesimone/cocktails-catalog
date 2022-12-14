@@ -29,10 +29,10 @@ const Home = () => {
       {showLoading && <Loading />}
       <div className="header">
         <div className="row">
-          <div className="col">
+          <div className="col-sm-6 col-xs-12 col-md-6 col-lg-6">
             <SiteTitle />
           </div>
-          <div className="col">
+          <div className="col-sm-6 col-xs-12 col-md-6 col-lg-6">
             <div className="searchForm">
               <label htmlFor="search">Search for a cocktail</label>
               <input
